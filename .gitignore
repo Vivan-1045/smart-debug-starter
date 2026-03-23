@@ -1,33 +1,95 @@
-HELP.md
+# ==============================
+# Spring Boot / Java Build Artifacts
+# ==============================
 target/
-.mvn/wrapper/maven-wrapper.jar
+build/
+!.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+!**/src/main/**/build/
+!**/src/test/**/build/
 
-### STS ###
+# ==============================
+# Maven
+# ==============================
+.mvn/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# ==============================
+# Gradle
+# ==============================
+.gradle/
+.gradle-cache/
+out/
+!gradle/wrapper/gradle-wrapper.jar
+
+# ==============================
+# Eclipse / STS
+# ==============================
 .apt_generated
 .classpath
 .factorypath
 .project
-.settings
+.settings/
 .springBeans
-.sts4-cache
+.sts4-cache/
 
-### IntelliJ IDEA ###
-.idea
+# ==============================
+# IntelliJ IDEA
+# ==============================
+.idea/
 *.iws
 *.iml
 *.ipr
 
-### NetBeans ###
+# ==============================
+# NetBeans
+# ==============================
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
-### VS Code ###
+# ==============================
+# VS Code
+# ==============================
 .vscode/
+
+# ==============================
+# OS Specific
+# ==============================
+.DS_Store
+Thumbs.db
+
+# ==============================
+# Logs
+# ==============================
+*.log
+logs/
+*.out
+
+# ==============================
+# Temporary Files
+# ==============================
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# ==============================
+# Sensitive Files (Credentials)
+# ==============================
+# Add any files in resources that contain passwords, keys, or tokens
+/src/main/resources/application-*.yml
+/src/main/resources/application-*.properties
+/src/main/resources/credentials/
+HELP.md
