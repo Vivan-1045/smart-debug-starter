@@ -12,5 +12,7 @@ public class DebugReport {
     private String fileName;
     private int lineNumber;
     private List<String> exceptionChain;
+    private List<String> flow;
+    private String suggestions;
 
 }
