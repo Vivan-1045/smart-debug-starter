@@ -1,5 +1,4 @@
 package com.vivek.smart_debug_starter.autoconfigure;
-
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
