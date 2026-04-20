@@ -3,7 +3,7 @@ package com.vivek.smart_debug_starter.Analyzer;
 import com.vivek.smart_debug_starter.Filter.FilterNoise;
 import com.vivek.smart_debug_starter.Model.DebugReport;
 import com.vivek.smart_debug_starter.Suggestions.genrateSuggestion;
-import jdk.jshell.SourceCodeAnalysis;
+
 
 import java.util.Collections;
 import java.util.List;
@@ -34,11 +34,18 @@ public class DebugAnalyser {
         }
 
         List<StackTraceElement> flowElement = FilterNoise.getExecutionFlow(ex.getStackTrace());
+
+        String basePackage = extractBasePackage(flowElement);
+
         List<String> flow = flowElement.stream()
                 .map(el -> {
-                    String fullClassName = el.getClassName();
-                    String simpleClassName = fullClassName.substring(fullClassName.lastIndexOf('.') + 1);
-                    return simpleClassName + "." + el.getMethodName();
+                    String simpleClassName = el.getClassName();
+                    if (!basePackage.isEmpty() && simpleClassName.startsWith(basePackage)){
+                        simpleClassName = simpleClassName.substring(basePackage.length()+1);
+                    }
+
+                    return simpleClassName + "." + el.getMethodName() +
+                            "(" + el.getFileName() + ":" + el.getLineNumber() + ")";
                 })
                 .distinct()
                 .collect(Collectors.toList());
@@ -50,5 +57,26 @@ public class DebugAnalyser {
         dbReport.setSuggestions(suggestion);
 
         return dbReport;
+    }
+
+    public static String extractBasePackage(List<StackTraceElement> flowEle){
+        if (flowEle == null || flowEle.isEmpty()) return "";
+
+        String[] baseParts = flowEle.get(0).getClassName().split("\\.");
+
+        for (int i = 1; i < flowEle.size(); i++) {
+            String[] parts = flowEle.get(i).getClassName().split("\\.");
+
+            int j = 0;
+            while (j < baseParts.length && j < parts.length && baseParts[j].equals(parts[j])) {
+                j++;
+            }
+
+            String[] newBase = new String[j];
+            System.arraycopy(baseParts, 0, newBase, 0, j);
+            baseParts = newBase;
+        }
+
+        return String.join(".", baseParts);
     }
 }
