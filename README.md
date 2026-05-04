@@ -117,7 +117,6 @@ Builds a readable call flow like:
 - 🤖 AI-powered debugging assistant (RAG-based)  
 - 🌐 StackOverflow + Reddit error learning integration  
 - 🧠 Context-aware fix suggestions using LLM  
-- 🧩 IDE integration (clickable file links)  
 
 ## Sample Use Case
 ```@GetMapping("/error")
