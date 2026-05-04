@@ -73,9 +73,9 @@ src/main/java/com/vivek/smart_debug_starter
 ### 1. Add dependency in pom.xml
 ```
 <dependency>
-    <groupId>com.vivek</groupId>
-    <artifactId>smart-debug-starter</artifactId>
-    <version>0.0.1</version>
+  <groupId>io.github.vivan-1045</groupId>
+  <artifactId>smart-debug-spring-boot-starter</artifactId>
+  <version>1.0.0</version>
 </dependency>
 ```
 ### 2. Run your application
