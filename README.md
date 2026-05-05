@@ -78,12 +78,7 @@ src/main/java/com/vivek/smart_debug_starter
   <version>1.0.0</version>
 </dependency>
 ```
-### 2. Run your application
-   ```
-   mvn clean install
-   mvn spring-boot:run
-   ```
-### 4. That’s it 🎉
+### 2. That’s it 🎉
 
    - No configuration required.
    - It auto-configures using Spring Boot’s @ControllerAdvice.
