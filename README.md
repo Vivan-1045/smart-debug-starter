@@ -75,7 +75,7 @@ src/main/java/com/vivek/smart_debug_starter
 <dependency>
   <groupId>io.github.vivan-1045</groupId>
   <artifactId>smart-debug-spring-boot-starter</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 </dependency>
 ```
 ### 2. That’s it 🎉
